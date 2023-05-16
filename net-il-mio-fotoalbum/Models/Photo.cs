@@ -17,7 +17,7 @@ namespace net_il_mio_fotoalbum.Models
         [Required]
         public bool visible { get; set; }
 
-        // many to many relationship with Category
+        // many to many relationship with Category++
         List<Category> Categories { get; set; }
     }
 }
