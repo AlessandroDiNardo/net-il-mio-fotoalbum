@@ -11,8 +11,8 @@ using net_il_mio_fotoalbum.Models;
 namespace net_il_mio_fotoalbum.Migrations
 {
     [DbContext(typeof(PhotoContext))]
-    [Migration("20230517131921_Initialcreate")]
-    partial class Initialcreate
+    [Migration("20230517135956_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

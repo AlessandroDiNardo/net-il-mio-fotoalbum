@@ -5,7 +5,7 @@
 namespace net_il_mio_fotoalbum.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialcreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

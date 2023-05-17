@@ -1,28 +1,34 @@
-﻿@model PhotoFormModel
+﻿@model List<Photo>
+@{
+    List<string> images = ViewData["Images"] as List<string>;
+}
 
-<ul class="container flex-wrap">
-    @{
-        int i = 0;
-    }
-    @foreach(Photo photo in Model.ListPhotos)
-    {
-        
-            <li class="card">
-                <a href="@Url.Action("Details", "Photo", new{id=@photo.Id})"
-                   style="text-decoration: none; color: black;">
-                <img src="data:image;base64,@Model.ListImages[i]" alt="photo" />
-                    <div class="card-body">
-                        <h5 class="card-title">@photo.Title</h5>
-                    </div>
+<div class="container-fluid py-3">
+    <h3 class="text-center fw-bolder">Your Photoes!</h3>
 
-                <a href="@Url.Action("Update", "Photo", new {id = @photo.Id})">Modifica</a>
-                <form asp-controller="Photo" asp-action="Delete" asp-route-id="@photo.Id" method="post">
-                    @Html.AntiForgeryToken()
-                    <button type="submit">Elimina</button>
-                </form>
-            </a>
+    <ul class="container flex-wrap">
+        @{
+            int i = 0;
+        }
+        @foreach(Photo photo in Model)
+        {
+                <li class="card">
+                    <a href="@Url.Action("Details", "Photo", new{id=@photo.Id})"
+                       style="text-decoration: none; color: black;">
+                    <img src="data:image;base64,@images[i]" alt="photo" />
+                        <div class="card-body">
+                            <h5 class="card-title">@photo.Title</h5>
+                        </div>
+
+                    <a href="@Url.Action("Update", "Photo", new {id = @photo.Id})">Modifica</a>
+                    <form asp-controller="Photo" asp-action="Delete" asp-route-id="@photo.Id" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit">Elimina</button>
+                    </form>
+                </a>
  
-            </li>
-        i++;
-    }
-</ul>
+                </li>
+            i++;
+        }
+    </ul>
+</div>
