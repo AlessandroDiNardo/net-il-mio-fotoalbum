@@ -1,3 +1,7 @@
-.ms_cont {
-    background-color: #b8b7b4;
+body {
+    background-color: #e3e3e3;
+}
+
+img{
+    object-fit:cover;
 }

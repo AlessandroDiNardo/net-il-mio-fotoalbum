@@ -38,16 +38,20 @@
         </div>
         <div class="mb-3">
             <label>Ingredients : </label>
-            <select asp-for="SelectedCategories" multiple="multiple" asp-items="Model.Categories" size="10"
-                    class="form-control mb-2 mr-sm-2 ml-sm-3 leftList">
-            </select>
+            @foreach (var cat in Model.Categories)
+            {
+                <div>
+                    <input id="@cat.Value" type="checkbox" name="SelectedIngredients" value="@cat.Value" />
+                    <label for="@cat.Value">@cat.Text</label>
+                </div>
+            }
             <span asp-validation-for="SelectedCategories" class="text-danger"></span>
 
         </div>
 
 
         <div class="text-end">
-            <input type="submit" class="btn btn-small btn-info" value="Salva">
+            <input type="submit" class="btn btn-small btn-success" value="Salva">
         </div>
     </form>
 </div>
