@@ -4,11 +4,14 @@
 }
 
 <div class="container py-3">
-    <h3 class="text-center fw-bolder justify-content-center ">Your Photoes!</h3>
+    <div class="d-flex justify-content-center align-items-center gap-2 row">
+        <h3 class="text-center fw-bolder justify-content-center ">Your Photos!</h3>
+        <button class="btn btn-success" style="width: 10%;">
+            <a class="text-light text-decoration-none fw-bold" asp-area="" asp-controller="Photo" asp-action="Create">Create</a>
+        </button>
+    </div>
 
-    <a class="text-dark text-decoration-none fw-bold btn btn-success text-center" asp-area="" asp-controller="Photo" asp-action="Create">Create</a>
-
-    <ul class="d-flex flex-wrap justify-content-center align-items-center gap-3 list-unstyled">
+    <ul class="d-flex flex-wrap justify-content-center align-items-center gap-5 list-unstyled mt-5">
         @{
             int i = 0;
         }

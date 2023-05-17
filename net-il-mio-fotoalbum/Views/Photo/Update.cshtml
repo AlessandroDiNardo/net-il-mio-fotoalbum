@@ -2,56 +2,68 @@
 @{
     string images = ViewData["Image"] as string;
 }
-<div class="container">
-    <form asp-controller="Photo" asp-action="Update" method="post" enctype="multipart/form-data">
-        @Html.AntiForgeryToken()
-        <div class="mb-3">
-            <strong>Nome:</strong>
-            <input asp-for="Photo.Title" class="d-block w-100" />
-            <span asp-validation-for="Photo.Title" class="text-danger"></span>
+<div class="container pt-5">
+   <div class="d-flex justify-content-start align-content-start gap-5" style="width: 100%;">
 
-        </div>
-        <div class="mb-3">
-            <strong>Descrizione:</strong>
-            <input asp-for="Photo.Description" class="d-block w-100" />
-            <span asp-validation-for="Photo.Description" class="text-danger"></span>
-
-        </div>
-        <div class="mb-3">
-            <strong>Link Immagine:</strong>
-            <input type="file" asp-for="ImageFile" class="d-block w-100" />
-            <span asp-validation-for="ImageFile" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <strong>Link Immagine:</strong>
-            <img src="data:image;base64,@images" alt="Pizza1">
-            <span asp-validation-for="ImageFile" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <strong>Visibility:</strong>
-            <select asp-for="Photo.Visibility">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-            <span asp-validation-for="Photo.Visibility" class="text-danger"></span>
-
-        </div>
-        <div class="mb-3">
-            <label>Ingredients : </label>
-            @foreach (var cat in Model.Categories)
-            {
-                <div>
-                    <input id="@cat.Value" type="checkbox" name="SelectedIngredients" value="@cat.Value" />
-                    <label for="@cat.Value">@cat.Text</label>
+        <button class="btn btn-light mt-3" style="height: 10%; width:20%;">
+            <a class="text-warning text-decoration-none fw-bold" asp-area="" asp-controller="Photo" asp-action="Index">
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                    <i class="fa-solid fa-person-walking-arrow-loop-left"></i>
+                    <div>Torna alla Home</div>
                 </div>
-            }
-            <span asp-validation-for="SelectedCategories" class="text-danger"></span>
+            </a>
+        </button>
 
-        </div>
+        <form asp-controller="Photo" asp-action="Update" method="post" enctype="multipart/form-data" style="width: 100%;">
+            @Html.AntiForgeryToken()
+            <div class="mb-3">
+                <div class="fw-bold">Nome:</div>
+                <input asp-for="Photo.Title" class="d-block w-50" />
+                <span asp-validation-for="Photo.Title" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <div class="fw-bold">Descrizione:</div>
+                <input asp-for="Photo.Description" class="d-block w-50" />
+                <span asp-validation-for="Photo.Description" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <div class="fw-bold">Link Immagine:</div>
+                <input type="file" asp-for="ImageFile" class="d-block w-50" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <div class="fw-bold">Link Immagine:</div>
+                <img src="data:image;base64,@images" alt="Pizza1" style="height: 250px; width:250px;">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <div class="fw-bold">Visibility:</div>
+                <select asp-for="Photo.Visibility">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                <span asp-validation-for="Photo.Visibility" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label>Ingredients : </label>
+                @foreach (var cat in Model.Categories)
+                {
+                    <div>
+                        <input id="@cat.Value" type="checkbox" name="SelectedIngredients" value="@cat.Value" />
+                        <label for="@cat.Value">@cat.Text</label>
+                    </div>
+                }
+                <span asp-validation-for="SelectedCategories" class="text-danger"></span>
+
+            </div>
 
 
-        <div class="text-end">
-            <input type="submit" class="btn btn-small btn-success" value="Salva">
-        </div>
-    </form>
+            <div class="text-start">
+                <input type="submit" class="btn btn-small btn-success" value="Salva">
+            </div>
+        </form>
+   </div>
 </div>

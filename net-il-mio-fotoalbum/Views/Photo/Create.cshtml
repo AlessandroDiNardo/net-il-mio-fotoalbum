@@ -1,27 +1,37 @@
 ﻿@model PhotoFormModel
 
 <div class="container pt-5">
+
+    <button class="btn btn-light mb-3">
+            <a class="text-warning text-decoration-none fw-bold" asp-area="" asp-controller="Photo" asp-action="Index">
+                <div class="d-flex justify-content-center align-items-center gap-3">
+                    <i class="fa-solid fa-person-walking-arrow-loop-left"></i>
+                    <div>Torna alla Home</div>
+                </div>
+            </a>
+    </button>
+
     <form asp-controller="Photo" asp-action="Create" method="post" enctype="multipart/form-data">
         @Html.AntiForgeryToken()
         <div class="mb-3">
-            <strong>Nome:</strong>
-            <input asp-for="Photo.Title" class="d-block w-100" />
+           <div class="fw-bold">Nome:</div>
+            <input asp-for="Photo.Title" class="d-block w-50" />
             <span asp-validation-for="Photo.Title" class="text-danger"></span>
 
         </div>
         <div class="mb-3">
-            <strong>Descrizione:</strong>
-            <input asp-for="Photo.Description" class="d-block w-100" />
+           <div class="fw-bold">Descrizione:</div>
+            <input asp-for="Photo.Description" class="d-block w-50" />
             <span asp-validation-for="Photo.Description" class="text-danger"></span>
 
         </div>
         <div class="mb-3">
-            <strong>Link Immagine:</strong>
-            <input type="file" asp-for="ImageFile" class="d-block w-100" />
+           <div class="fw-bold">Link Immagine:</div>
+            <input type="file" asp-for="ImageFile" class="d-block w-50" />
             <span asp-validation-for="ImageFile" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <strong>Visibility:</strong>
+           <div class="fw-bold">Visibility:</div>
             <select asp-for="Photo.Visibility">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
@@ -41,7 +51,7 @@
         </div>
 
 
-        <div class="text-end">
+        <div class="text-start mt-3">
             <input type="submit" class="btn btn-small btn-success" value="Salva">
         </div>
     </form>
